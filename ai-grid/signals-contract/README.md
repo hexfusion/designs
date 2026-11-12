@@ -13,7 +13,7 @@ honest origin and age, and which series the gateway uses. It also covers the
 model catalog, which travels beside the signals.
 
 How the gateway turns these signals into a routing decision is in
-[AI Grid Site Selection](../site-selection/README.md).
+[AI Grid Smart Routing](../smart-routing/README.md).
 
 ## Producers and readers
 
@@ -88,7 +88,7 @@ Load and models travel separately. The model catalog has its own path,
    and its weight.
 
 A peer's models stay in the catalog while its GridSite names it. When a peer goes
-silent, its signals age out and site selection routes around it, but its models
+silent, its signals age out and smart routing routes around it, but its models
 remain listed.
 
 In AI Grid 0.3.0 only models named in spec.models reach a peer. A provider that
