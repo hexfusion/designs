@@ -136,7 +136,7 @@ because MaaS already authenticated the caller. Its grid_site_route filter picks
 a site for every request from the operator's files. It applies the sovereignty
 fence and keeps the sites with room. It narrows to the site holding the prompt's
 prefix, then draws two sites by capacity and keeps the less saturated one.
-[AI Grid Site Selection](../site-selection/README.md) describes the decision.
+[AI Grid Smart Routing](../smart-routing/README.md) describes the decision.
 
 The gateway stamps x-grid-site and x-grid-backend on the response. It dials a
 local model through the RHOAI serving gateway with a base path, so the llm-d
