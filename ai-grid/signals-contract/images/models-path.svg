@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" font-family="Helvetica, Arial, sans-serif">
+  <defs><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#94A3B8"/></marker><marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#F59E0B"/></marker></defs>
+  <rect width="1200" height="420" fill="#ffffff"/>
+  <rect x="40" y="60" width="380" height="290" rx="6" fill="#ffffff" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="6 5"/>
+  <text x="64" y="94" font-size="15" font-weight="700" fill="#64748B" text-anchor="start">Serving site</text>
+  <rect x="64" y="112" width="332" height="80" rx="6" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+  <text x="84" y="142" font-size="16" font-weight="700" fill="#92400E" text-anchor="start">InferenceProvider</text>
+  <text x="84" y="168" font-size="14" font-weight="400" fill="#B45309" text-anchor="start">spec.models names the models</text>
+  <rect x="64" y="222" width="332" height="104" rx="6" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+  <text x="84" y="252" font-size="16" font-weight="700" fill="#92400E" text-anchor="start">Operator</text>
+  <text x="84" y="278" font-size="14" font-weight="400" fill="#B45309" text-anchor="start">serves /v1/site/providers</text>
+  <text x="84" y="300" font-size="14" font-weight="400" fill="#B45309" text-anchor="start">filtered by each provider's siteSelector</text>
+  <line x1="230" y1="192" x2="230" y2="218" stroke="#94A3B8" stroke-width="2.5" marker-end="url(#g)"/>
+  <rect x="600" y="60" width="560" height="290" rx="6" fill="#EEF2FF" stroke="#6366F1" stroke-width="2.5"/>
+  <text x="624" y="94" font-size="16" font-weight="700" fill="#4338CA" text-anchor="start">Consumer site</text>
+  <rect x="624" y="112" width="228" height="214" rx="6" fill="#E0E7FF" stroke="#818CF8" stroke-width="1.5"/>
+  <text x="644" y="142" font-size="16" font-weight="700" fill="#3730A3" text-anchor="start">Operator</text>
+  <text x="644" y="170" font-size="14" font-weight="400" fill="#4F46E5" text-anchor="start">admits the peer's records</text>
+  <text x="644" y="194" font-size="14" font-weight="400" fill="#4F46E5" text-anchor="start">the site is the peer it polled</text>
+  <text x="644" y="218" font-size="14" font-weight="400" fill="#4F46E5" text-anchor="start">one candidate per model</text>
+  <text x="644" y="256" font-size="14" font-weight="700" fill="#3730A3" text-anchor="start">writes serving-config.json</text>
+  <rect x="880" y="112" width="256" height="214" rx="6" fill="#ECFDF5" stroke="#10B981" stroke-width="2.5"/>
+  <text x="900" y="142" font-size="16" font-weight="700" fill="#065F46" text-anchor="start">Grid gateway</text>
+  <text x="900" y="170" font-size="14" font-weight="400" fill="#047857" text-anchor="start">reads the candidates</text>
+  <text x="900" y="194" font-size="14" font-weight="400" fill="#047857" text-anchor="start">routes model X to a site</text>
+  <text x="900" y="218" font-size="14" font-weight="400" fill="#047857" text-anchor="start">listing X</text>
+  <line x1="852" y1="219" x2="876" y2="219" stroke="#94A3B8" stroke-width="2.5" marker-end="url(#g)"/>
+  <line x1="620" y1="274" x2="400" y2="274" stroke="#F59E0B" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#o)"/>
+  <text x="510" y="262" font-size="13" font-weight="700" fill="#B45309" text-anchor="middle">polls, mutual TLS</text>
+  <text x="510" y="296" font-size="13" font-weight="400" fill="#B45309" text-anchor="middle">on a version change</text>
+  <!-- version stamp -->
+  <rect x="1004" y="388" width="176" height="20" rx="6" fill="#E2E8F0"/><text x="1092" y="402" font-size="12" fill="#475569" text-anchor="middle">RHOAI 3.6, AI Grid 0.3.0</text>
+</svg>

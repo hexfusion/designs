@@ -9,7 +9,8 @@
 Each grid site publishes the live load of its model providers, and every other
 site reads it to route. This document describes that contract. It covers who
 produces the signals, the endpoint, who may read what, how a sample keeps an
-honest origin and age, and which series the gateway uses.
+honest origin and age, and which series the gateway uses. It also covers the
+model catalog, which travels beside the signals.
 
 How the gateway turns these signals into a routing decision is in
 [AI Grid Site Selection](../site-selection/README.md).
@@ -63,6 +64,36 @@ exported_ name, so a provider cannot claim to be another site.
 When the operator ingests a peer's response, the dialed peer's verified
 identity is the origin. A sample with no site label is attributed to that peer.
 A sample naming another site is refused, not re-attributed.
+
+## Models
+
+![A peer's model catalog reaches the consumer gateway](images/models-path.svg)
+
+Load and models travel separately. The model catalog has its own path,
+/v1/site/providers, on the same mutual TLS listener as the signals.
+
+1. Each InferenceProvider names its models in spec.models.
+2. The operator serves its providers as JSON records on /v1/site/providers. Each
+   record names the provider, its routing cluster, its models, its capacityWeight
+   and its phase. A peer sees only the providers whose accessPolicy.siteSelector
+   it satisfies, the same rule as the signals.
+3. Every signals answer carries an x-grid-providers-version header. A peer
+   re-reads the catalog only when that version changes.
+4. The consumer operator admits the records. The site comes from the peer it
+   polled, never from the body. It refuses a record that claims one of its own
+   clusters or another peer's, and a body over 256 records or 256 KiB. After a
+   refused or failed read it keeps the last catalog it accepted.
+5. The operator writes one routing candidate per model into the gateway's
+   serving config: the model, the site, the cluster, whether it is fresh,
+   and its weight.
+
+A peer's models stay in the catalog while its GridSite names it. When a peer goes
+silent, its signals age out and site selection routes around it, but its models
+remain listed.
+
+In AI Grid 0.3.0 only models named in spec.models reach a peer. A provider that
+uses spec.modelDiscovery publishes a catalog record with no models, so peers do
+not route to its discovered models.
 
 ## Series
 
