@@ -32,26 +32,21 @@ the 24 second freshness window makes the site silent: unmeasured, not idle.
 
 ![The decision order in grid_site_route](images/decision-order.svg)
 
-1. The sovereignty fence reads the zones a request may be served in from a
-   header. Only sites in a named zone stay. In enforce mode the gateway refuses a
-   request that names no valid zone. Audit mode records it and routes.
-2. A request naming a stored response or conversation goes to the site that
-   stored it, unless the model is shed or that site is outside the fence.
-3. A request with no model gets 400 and an unknown model 404.
-4. A shed model gets 429 with a Retry-After of 3 to 7 seconds, spread so retries
-   do not arrive together.
-5. Matching keeps the sites that serve the model, have a route, have not
-   expired and pass the fence.
-6. Healthy sites stay ahead of demoted ones, and live sites ahead of silent ones.
-7. Sites with room come first. With no room anywhere, the overflow tiers keep
-   sites with work waiting but not full, then sites not full.
-8. Prefix affinity narrows inside that tier. It cannot bring back a site the
-   tiers removed.
-9. With pressure known everywhere, the pick draws two sites by capacity and keeps
-   the less saturated one. Otherwise it keeps the sites with the least queue.
+1. Refuse or pin. A request outside the sovereignty fence, with no model, or for a
+   shed model is answered here with 403, 400 or 429. A request naming a stored
+   response or conversation goes to the site that stored it.
+2. Candidates. The sites that serve the model, pass the fence, and are healthy
+   and live. A site with no reading inside the 24 second freshness window is
+   silent and steps aside while any live site remains.
+3. Tier. Sites with room come first. With no room anywhere, the overflow tier
+   keeps the sites that are not full.
+4. Affinity. Inside the tier, prefer the site holding the prompt's prefix. It
+   cannot bring back a site the tier removed.
+5. Draw. Pick two sites by capacity and keep the less saturated one.
 
-A request no site can take gets 503 with Retry-After. A routed response names
-the chosen site and backend in x-grid-site and x-grid-backend.
+An unknown model gets 404, and a request no site can take gets 503 with
+Retry-After. A routed response names the chosen site and backend in x-grid-site
+and x-grid-backend.
 
 ## Load and capacity
 
