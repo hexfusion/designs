@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1220" height="710" viewBox="0 0 1220 710" font-family="Helvetica, Arial, sans-serif">
+  <rect width="1220" height="710" fill="#ffffff"/>
+
+  <defs>
+    <marker id="grn" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#10B981"/></marker>
+  </defs>
+
+  <!-- client (external) -->
+  <rect x="40" y="105" width="110" height="72" rx="6" fill="#ffffff" stroke="#94A3B8" stroke-width="1.5"/>
+  <rect x="90" y="111" width="56" height="20" rx="6" fill="#E2E8F0"/><text x="118" y="125" font-size="12" fill="#475569" text-anchor="middle">external</text>
+  <text x="95" y="160" font-size="15" font-weight="700" fill="#0F172A" text-anchor="middle">client</text>
+
+  <!-- consumer site -->
+  <rect x="316" y="12" width="338" height="572" rx="6" fill="#F1F5F9" stroke="#64748B" stroke-width="3"/>
+  <rect x="582" y="24" width="58" height="20" rx="6" fill="#E2E8F0"/><text x="611" y="38" font-size="12" fill="#475569" text-anchor="middle">cluster</text>
+  <text x="336" y="40" font-size="16" font-weight="700" fill="#0F172A">consumer site</text>
+
+  <rect x="360" y="72" width="250" height="108" rx="6" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.5"/>
+  <text x="376" y="96" font-size="14" font-weight="700" fill="#0F172A">MaaS gateway</text>
+  <rect x="376" y="110" width="104" height="54" rx="6" fill="#EEF2F7" stroke="#94A3B8" stroke-width="1"/><text x="428" y="142" font-size="13" fill="#0F172A" text-anchor="middle">Authorino</text>
+  <rect x="490" y="110" width="104" height="54" rx="6" fill="#EEF2F7" stroke="#94A3B8" stroke-width="1"/><text x="542" y="142" font-size="13" fill="#0F172A" text-anchor="middle">Limitador</text>
+
+  <rect x="360" y="270" width="250" height="110" rx="6" fill="#EEF2FF" stroke="#6366F1" stroke-width="1.5"/>
+  <text x="376" y="294" font-size="14" font-weight="700" fill="#4338CA">grid gateway</text>
+  <rect x="376" y="308" width="104" height="56" rx="6" fill="#E0E7FF" stroke="#6366F1" stroke-width="1"/><text x="428" y="331" font-size="13" fill="#4338CA" text-anchor="middle">Praxis</text><text x="428" y="348" font-size="13" fill="#4338CA" text-anchor="middle">consumer</text>
+  <rect x="490" y="308" width="104" height="56" rx="6" fill="#E0E7FF" stroke="#6366F1" stroke-width="1"/><text x="542" y="341" font-size="13" fill="#4338CA" text-anchor="middle">site pick</text>
+
+  <rect x="360" y="470" width="250" height="66" rx="6" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
+  <text x="485" y="508" font-size="14" font-weight="700" fill="#1D4ED8" text-anchor="middle">serving gateway + EPP</text>
+
+  <!-- producer site -->
+  <rect x="856" y="204" width="348" height="470" rx="6" fill="#F1F5F9" stroke="#64748B" stroke-width="3"/>
+  <rect x="1132" y="216" width="58" height="20" rx="6" fill="#E2E8F0"/><text x="1161" y="230" font-size="12" fill="#475569" text-anchor="middle">cluster</text>
+  <text x="876" y="232" font-size="16" font-weight="700" fill="#0F172A">producer site</text>
+
+  <rect x="900" y="262" width="260" height="118" rx="6" fill="#EEF2FF" stroke="#6366F1" stroke-width="1.5"/>
+  <text x="916" y="288" font-size="14" font-weight="700" fill="#4338CA">provider gateway</text>
+  <rect x="916" y="308" width="228" height="56" rx="6" fill="#E0E7FF" stroke="#6366F1" stroke-width="1"/><text x="1030" y="341" font-size="13" fill="#4338CA" text-anchor="middle">Praxis provider</text>
+
+  <rect x="900" y="470" width="260" height="66" rx="6" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
+  <text x="1030" y="508" font-size="14" font-weight="700" fill="#1D4ED8" text-anchor="middle">serving gateway + EPP</text>
+
+  <rect x="900" y="578" width="260" height="54" rx="6" fill="#F5F3FF" stroke="#8B5CF6" stroke-width="1.5"/>
+  <text x="1030" y="610" font-size="14" font-weight="700" fill="#6D28D9" text-anchor="middle">vLLM</text>
+
+  <!-- hop 1: client to MaaS -->
+  <line x1="152" y1="141" x2="353" y2="141" stroke="#10B981" stroke-width="3" marker-end="url(#grn)"/>
+  <rect x="217" y="129" width="70" height="24" rx="6" fill="#ECFDF5" stroke="#10B981" stroke-width="1"/><text x="252" y="145" font-size="12" font-weight="700" fill="#065F46" text-anchor="middle">API key</text>
+
+  <!-- hop 2: MaaS to grid gateway -->
+  <line x1="380" y1="182" x2="380" y2="263" stroke="#10B981" stroke-width="3" marker-end="url(#grn)"/>
+  <rect x="396" y="211" width="154" height="24" rx="6" fill="#ECFDF5" stroke="#10B981" stroke-width="1"/><text x="473" y="227" font-size="12" font-weight="700" fill="#065F46" text-anchor="middle">TLS + NetworkPolicy</text>
+
+  <!-- hop 3: cross-site -->
+  <line x1="612" y1="345" x2="893" y2="345" stroke="#10B981" stroke-width="3" marker-end="url(#grn)"/>
+  <rect x="724" y="333" width="58" height="24" rx="6" fill="#ECFDF5" stroke="#10B981" stroke-width="1"/><text x="753" y="349" font-size="12" font-weight="700" fill="#065F46" text-anchor="middle">mTLS</text>
+
+  <!-- hop 4: provider to serving -->
+  <line x1="930" y1="382" x2="930" y2="463" stroke="#10B981" stroke-width="3" marker-end="url(#grn)"/>
+  <rect x="946" y="411" width="98" height="24" rx="6" fill="#ECFDF5" stroke="#10B981" stroke-width="1"/><text x="995" y="427" font-size="12" font-weight="700" fill="#065F46" text-anchor="middle">TLS + token</text>
+
+  <!-- hop 5: serving to vLLM -->
+  <line x1="930" y1="538" x2="930" y2="571" stroke="#10B981" stroke-width="3" marker-end="url(#grn)"/>
+
+  <!-- local alternative -->
+  <line x1="380" y1="382" x2="380" y2="464" stroke="#10B981" stroke-width="1.75" marker-end="url(#grn)"/>
+  <rect x="396" y="411" width="98" height="24" rx="6" fill="#ECFDF5" stroke="#10B981" stroke-width="1"/><text x="445" y="427" font-size="12" font-weight="700" fill="#065F46" text-anchor="middle">TLS + token</text>
+
+  <!-- version stamp -->
+  <rect x="1024" y="678" width="176" height="20" rx="6" fill="#E2E8F0"/><text x="1112" y="692" font-size="12" fill="#475569" text-anchor="middle">RHOAI 3.6, AI Grid 0.3.0</text>
+</svg>

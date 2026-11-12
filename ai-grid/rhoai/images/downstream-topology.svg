@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="620" viewBox="0 0 1240 620" font-family="Helvetica, Arial, sans-serif">
+  <rect width="1240" height="620" fill="#ffffff"/>
+
+  <defs>
+    <marker id="g"   markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#94A3B8"/></marker>
+    <marker id="grn" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#10B981"/></marker>
+    <marker id="amb" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto-start-reverse"><path d="M0,0 L7,3 L0,6 Z" fill="#F59E0B"/></marker>
+  </defs>
+
+  <!-- client (external) -->
+  <g transform="translate(0,-90)">
+  <rect x="30" y="230" width="104" height="72" rx="6" fill="#ffffff" stroke="#94A3B8" stroke-width="1.5"/>
+  <rect x="74" y="236" width="56" height="20" rx="6" fill="#E2E8F0"/><text x="102" y="250" font-size="12" fill="#475569" text-anchor="middle">external</text>
+  <text x="82" y="284" font-size="15" font-weight="700" fill="#0F172A" text-anchor="middle">client</text>
+
+  
+  </g>
+
+  <!-- ingress site -->
+  <rect x="170" y="110" width="280" height="300" rx="6" fill="#F1F5F9" stroke="#64748B" stroke-width="3"/>
+  <rect x="380" y="121" width="58" height="20" rx="6" fill="#E2E8F0"/><text x="409" y="135" font-size="12" fill="#475569" text-anchor="middle">cluster</text>
+  <text x="188" y="136" font-size="16" font-weight="700" fill="#0F172A">ingress site</text>
+  <rect x="190" y="150" width="240" height="50" rx="6" fill="#EEF2F7" stroke="#94A3B8" stroke-width="1"/><text x="310" y="180" font-size="13" fill="#0F172A" text-anchor="middle">MaaS gateway</text>
+  <rect x="190" y="240" width="240" height="50" rx="6" fill="#E0E7FF" stroke="#6366F1" stroke-width="1"/><text x="310" y="270" font-size="13" fill="#4338CA" text-anchor="middle">grid gateway (consumer)</text>
+  <rect x="190" y="340" width="240" height="50" rx="6" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1"/><text x="310" y="370" font-size="13" fill="#92400E" text-anchor="middle">grid operator</text>
+
+  <!-- combined site -->
+  <rect x="490" y="110" width="390" height="300" rx="6" fill="#F1F5F9" stroke="#64748B" stroke-width="3"/>
+  <rect x="810" y="121" width="58" height="20" rx="6" fill="#E2E8F0"/><text x="839" y="135" font-size="12" fill="#475569" text-anchor="middle">cluster</text>
+  <text x="508" y="136" font-size="16" font-weight="700" fill="#0F172A">combined site</text>
+  <rect x="500" y="146" width="178" height="180" rx="6" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.5"/>
+  <text x="510" y="164" font-size="12.5" font-weight="700" fill="#334155">inference role</text>
+  <rect x="509" y="172" width="160" height="36" rx="6" fill="#E0E7FF" stroke="#6366F1" stroke-width="1"/><text x="589" y="195" font-size="13" fill="#4338CA" text-anchor="middle">provider gateway</text>
+  <rect x="509" y="226" width="160" height="36" rx="6" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1"/><text x="589" y="249" font-size="13" fill="#1D4ED8" text-anchor="middle">serving gateway + EPP</text>
+  <rect x="509" y="280" width="160" height="36" rx="6" fill="#EDE9FE" stroke="#8B5CF6" stroke-width="1"/><text x="589" y="303" font-size="13" fill="#6D28D9" text-anchor="middle">vLLM pods</text>
+  <rect x="686" y="146" width="186" height="180" rx="6" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.5"/>
+  <text x="696" y="164" font-size="12.5" font-weight="700" fill="#334155">ingress role</text>
+  <rect x="695" y="172" width="168" height="36" rx="6" fill="#EEF2F7" stroke="#94A3B8" stroke-width="1"/><text x="779" y="195" font-size="13" fill="#0F172A" text-anchor="middle">MaaS gateway</text>
+  <rect x="695" y="226" width="168" height="36" rx="6" fill="#E0E7FF" stroke="#6366F1" stroke-width="1"/><text x="779" y="249" font-size="13" fill="#4338CA" text-anchor="middle">grid gateway (consumer)</text>
+  <rect x="510" y="340" width="180" height="50" rx="6" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1"/><text x="600" y="370" font-size="13" fill="#92400E" text-anchor="middle">grid operator</text>
+
+  <!-- inference site -->
+  <rect x="920" y="110" width="290" height="300" rx="6" fill="#F1F5F9" stroke="#64748B" stroke-width="3"/>
+  <rect x="1140" y="121" width="58" height="20" rx="6" fill="#E2E8F0"/><text x="1169" y="135" font-size="12" fill="#475569" text-anchor="middle">cluster</text>
+  <text x="938" y="136" font-size="16" font-weight="700" fill="#0F172A">inference site</text>
+  <rect x="940" y="150" width="250" height="40" rx="6" fill="#E0E7FF" stroke="#6366F1" stroke-width="1"/><text x="1065" y="175" font-size="13" fill="#4338CA" text-anchor="middle">provider gateway</text>
+  <rect x="940" y="215" width="250" height="40" rx="6" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1"/><text x="1065" y="240" font-size="13" fill="#1D4ED8" text-anchor="middle">serving gateway + EPP</text>
+  <rect x="940" y="280" width="250" height="40" rx="6" fill="#EDE9FE" stroke="#8B5CF6" stroke-width="1"/><text x="1065" y="305" font-size="13" fill="#6D28D9" text-anchor="middle">vLLM pods</text>
+  <rect x="940" y="340" width="250" height="50" rx="6" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1"/><text x="1065" y="370" font-size="13" fill="#92400E" text-anchor="middle">grid operator</text>
+
+  <!-- hub -->
+  <rect x="330" y="470" width="580" height="104" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
+  <rect x="840" y="480" width="58" height="20" rx="6" fill="#E2E8F0"/><text x="869" y="494" font-size="12" fill="#475569" text-anchor="middle">cluster</text>
+  <text x="348" y="495" font-size="16" font-weight="700" fill="#334155">RHOAI hub</text>
+  <rect x="350" y="506" width="120" height="52" rx="6" fill="#EEF2F7" stroke="#CBD5E1" stroke-width="1"/><text x="410" y="537" font-size="13" fill="#334155" text-anchor="middle">ACM</text>
+  <rect x="490" y="506" width="400" height="52" rx="6" fill="#EEF2F7" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="690" y="527" font-size="13" font-weight="700" fill="#334155" text-anchor="middle">grid-bootstrap</text>
+  <text x="690" y="546" font-size="12" fill="#64748B" text-anchor="middle">enrollment, Grid CA via cert-manager</text>
+  <text x="620" y="600" font-size="12.5" font-style="italic" fill="#64748B" text-anchor="middle">no models on the hub</text>
+
+  <!-- control plane (receding) -->
+  <line x1="360" y1="468" x2="360" y2="417" stroke="#94A3B8" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#g)"/>
+  <line x1="700" y1="468" x2="700" y2="417" stroke="#94A3B8" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#g)"/>
+  <path d="M912,522 H1065 V417" fill="none" stroke="#94A3B8" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#g)"/>
+  <rect x="712" y="430" width="225" height="22" rx="6" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1"/><text x="824.5" y="445" font-size="12" font-weight="700" fill="#475569" text-anchor="middle">identity + GridNetwork via ACM</text>
+
+  <line x1="434" y1="365" x2="503" y2="365" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5 4" marker-start="url(#amb)" marker-end="url(#amb)"/>
+  <line x1="694" y1="365" x2="933" y2="365" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5 4" marker-start="url(#amb)" marker-end="url(#amb)"/>
+  <rect x="759" y="354" width="108" height="22" rx="6" fill="#FFFBEB" stroke="#F59E0B" stroke-width="1"/><text x="813" y="369" font-size="12" font-weight="700" fill="#92400E" text-anchor="middle">signals, mTLS</text>
+
+  <!-- data plane (lit) -->
+  <line x1="136" y1="175" x2="183" y2="175" stroke="#10B981" stroke-width="3" marker-end="url(#grn)"/>
+  <line x1="310" y1="202" x2="310" y2="233" stroke="#10B981" stroke-width="3" marker-end="url(#grn)"/>
+  <path d="M470,190 H493" fill="none" stroke="#10B981" stroke-width="3" marker-end="url(#grn)"/>
+  <path d="M432,265 H470 V72 H1065 V143" fill="none" stroke="#10B981" stroke-width="3" marker-end="url(#grn)"/>
+  <rect x="707" y="61" width="46" height="22" rx="6" fill="#ECFDF5" stroke="#10B981" stroke-width="1"/><text x="730" y="76" font-size="12" font-weight="700" fill="#065F46" text-anchor="middle">mTLS</text>
+  <rect x="447" y="221" width="46" height="22" rx="6" fill="#ECFDF5" stroke="#10B981" stroke-width="1"/><text x="470" y="236" font-size="12" font-weight="700" fill="#065F46" text-anchor="middle">mTLS</text>
+  <!-- flow inside the serving sites -->
+  <path d="M589,209 V225" fill="none" stroke="#10B981" stroke-width="2" marker-end="url(#grn)"/>
+  <path d="M589,263 V279" fill="none" stroke="#10B981" stroke-width="2" marker-end="url(#grn)"/>
+  <path d="M779,209 V225" fill="none" stroke="#10B981" stroke-width="2" marker-end="url(#grn)"/>
+  <path d="M694,244 H672" fill="none" stroke="#10B981" stroke-width="2" marker-end="url(#grn)"/>
+  <path d="M864,236 H900 V170 H933" fill="none" stroke="#10B981" stroke-width="3" marker-end="url(#grn)"/>
+  <path d="M1065,191 V214" fill="none" stroke="#10B981" stroke-width="2" marker-end="url(#grn)"/>
+  <path d="M1065,256 V279" fill="none" stroke="#10B981" stroke-width="2" marker-end="url(#grn)"/>
+  <!-- version stamp -->
+  <rect x="1044" y="588" width="176" height="20" rx="6" fill="#E2E8F0"/><text x="1132" y="602" font-size="12" fill="#475569" text-anchor="middle">RHOAI 3.6, AI Grid 0.3.0</text>
+</svg>
