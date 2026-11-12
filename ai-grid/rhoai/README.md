@@ -95,8 +95,8 @@ controller publishes one per LLMInferenceService.
 
 The grid operator on each site does this work outside the request path:
 
-- Scrapes each local InferenceProvider's EPP metrics for average KV cache
-  utilization, average queue size and ready endpoints.
+- Scrapes each local InferenceProvider's EPP pool gauges: saturation, KV cache
+  utilization, queue size and ready endpoints.
 - Serves these signals on an mTLS signals endpoint and polls its peers'
   signals the same way.
 - Writes a serving ConfigMap with the dial file the consumer gateway reads, and
@@ -104,6 +104,9 @@ The grid operator on each site does this work outside the request path:
 
 The gateways read only these files on the request path. They never call the
 Kubernetes API or a peer to make a routing decision.
+
+[AI Grid Signals Contract](../signals-contract/README.md) describes the
+endpoint, who may read what, and the series.
 
 ## Data plane
 
