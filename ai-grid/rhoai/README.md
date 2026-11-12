@@ -22,6 +22,19 @@ to the tenant that sent it.
 This document describes the grid as it ships in RHOAI 3.6, with the focus on
 the Praxis grid gateways and their integration with MaaS.
 
+## Planes
+
+The grid runs as three planes. All three are active once a site has joined.
+
+| Plane | What it does | Runs on |
+|---|---|---|
+| Orchestration | Decides which clusters are members and in what role, installs RHOAI, enrolls each site and delivers its identity. | ACM, Argo CD and grid-bootstrap on the hub. |
+| Control plane | Observes local load, exchanges signals with peer sites, and writes the files the gateways route from. | The grid operator on each site. |
+| Data plane | Carries the request: admits it, picks a site and dials it. | The MaaS gateway and the Praxis grid gateways. |
+
+The control plane and the data plane meet at one point: the files the operator
+writes. The gateways read only those files on the request path.
+
 ## Topology
 
 ![Downstream topology](images/downstream-topology.svg)
@@ -45,7 +58,54 @@ when the DataScienceCluster sets aiGrid to Managed. The operator image, both
 gateway images and the enrollment image come from the RHOAI payload, and the
 grid CRDs come from the AI gateway operator's manifests.
 
-## Request path
+## Orchestration
+
+![Orchestration and control plane](images/downstream-control-plane.svg)
+
+The hub enrolls each member and replicates identity, membership, and peer
+GridSites to it through ACM. The product shape has no SWIM gossip.
+
+Two labels on the ManagedCluster set
+membership: ai-grid/enabled=true makes it a grid member, and ai-grid/role
+(ingress, inference, or combined) selects what RHOAI installs. The provider
+console's Add to AI Grid action sets both. A Placement on those labels drives
+every row below, and the figure shows the same flows.
+
+| Object | Direction | Carried by | On withdrawal |
+|---|---|---|---|
+| Site identity Secret and Grid CA bundle | Hub to member | Policy copying the issued Secret of the hub's per-member Certificate, signed by the Grid CA. The CA signing key never leaves the hub. | Retained. Renewal stops, and the certificate is not revoked. |
+| GridNetwork | Hub to member | Policy, after the identity Secret, the CA bundle and the Grid CRDs exist. Local membership, poll transport, peer trust, the member's consumer gateway reference, and the grid ID from an immutable state ConfigMap on the hub. | Retained. Leaving the network is an explicit membership change. |
+| Operator ConfigMap | Hub to member | Policy. Site-only, carries the site name. | Removed with the peer records. |
+| Peer GridSites | Hub to member | Policy writing every other member's GridSite with mustonlyhave, so the hub's view wins. | The policy removes the remote copies. |
+| Signals Route and own GridSite | Hub to member, model-serving sites only | Policy creating a passthrough Route for the signals Service and writing the GridSite from the admitted Route hosts of the provider gateway and the signals Service. | The Route is removed. The own GridSite is retained. |
+| GridSite observer | Member to hub | ManifestWork installing a read-only observer. Its status feedback gives the hub the member's GridSite, the input to the peer GridSites row. | The ManifestWork is removed and the hub stops reading the member's GridSite. The observer's permissions on the member are left in place. |
+| RHOAI product chart | Hub to member | Argo CD ApplicationSet joining the Placement decisions with the cluster Secret's role label, rendering the profile for the role. | Removing the role stops managing the site's RHOAI. The site stays a member until ai-grid/enabled goes too. |
+
+Everything a member needs arrives by policy from the hub, and the hub reads
+members without a member ever dialing it. No member reaches another except
+through the two gateways and the signals Service over grid mTLS.
+
+## Control plane
+
+The right side of the figure above shows the control plane on a member site.
+Sites poll each other for signals.
+
+InferenceProviders declare the models. On an inference site the ODH model
+controller publishes one per LLMInferenceService.
+
+The grid operator on each site does this work outside the request path:
+
+- Scrapes each local InferenceProvider's EPP metrics for average KV cache
+  utilization, average queue size and ready endpoints.
+- Serves these signals on an mTLS signals endpoint and polls its peers'
+  signals the same way.
+- Writes a serving ConfigMap with the dial file the consumer gateway reads, and
+  a provider file the provider gateway reads.
+
+The gateways read only these files on the request path. They never call the
+Kubernetes API or a peer to make a routing decision.
+
+## Data plane
 
 ![Consumer to producer, with the authentication on each hop](images/downstream-request-path.svg)
 
@@ -95,59 +155,14 @@ reaches the listener intact. The gateway admits peers listed in the operator's
 provider file by the identity in their certificate and forwards to the local model through the
 serving gateway.
 
-### Two policy planes
+### Two policy layers
 
-The split follows two planes. The consumer plane, MaaS, decides who the caller
-is, what they may call and what they may spend. The federation plane, the grid,
+The split follows two policy layers. The consumer layer, MaaS, decides who the caller
+is, what they may call and what they may spend. The federation layer, the grid,
 decides where an admitted request goes and whether the target may serve it.
 Today the handoff between them is the in-cluster dial. A signed wristband
 carrying the admitted identity and claims is the designed handoff for when the
-planes run as separate hops.
-
-## Control plane
-
-![Control plane](images/downstream-control-plane.svg)
-
-The hub enrolls each member and replicates identity, membership, and peer
-GridSites to it through ACM, as the next section lists. The product shape has no
-SWIM gossip. Sites poll each other for signals.
-
-InferenceProviders declare the models. On an inference site the ODH model
-controller publishes one per LLMInferenceService.
-
-The grid operator on each site does the signal work outside the request path:
-
-- Scrapes each local InferenceProvider's EPP metrics for average KV cache
-  utilization, average queue size and ready endpoints.
-- Serves these signals on an mTLS signals endpoint and polls its peers'
-  signals the same way.
-- Writes a serving ConfigMap with the dial file the consumer gateway reads, and
-  a provider file the provider gateway reads.
-
-The gateways read only these files on the request path. They never call the
-Kubernetes API or a peer to make a routing decision.
-
-## Object replication with ACM
-
-The control plane figure shows these flows. Two labels on the ManagedCluster set
-membership: ai-grid/enabled=true makes it a grid member, and ai-grid/role
-(ingress, inference, or combined) selects what RHOAI installs. The provider
-console's Add to AI Grid action sets both. A Placement on those labels drives
-every row below.
-
-| Object | Direction | Carried by | On withdrawal |
-|---|---|---|---|
-| Site identity Secret and Grid CA bundle | Hub to member | Policy copying the issued Secret of the hub's per-member Certificate, signed by the Grid CA. The CA signing key never leaves the hub. | Retained. Renewal stops, and the certificate is not revoked. |
-| GridNetwork | Hub to member | Policy, after the identity Secret, the CA bundle and the Grid CRDs exist. Local membership, poll transport, peer trust, the member's consumer gateway reference, and the grid ID from an immutable state ConfigMap on the hub. | Retained. Leaving the network is an explicit membership change. |
-| Operator ConfigMap | Hub to member | Policy. Site-only, carries the site name. | Removed with the peer records. |
-| Peer GridSites | Hub to member | Policy writing every other member's GridSite with mustonlyhave, so the hub's view wins. | The policy removes the remote copies. |
-| Signals Route and own GridSite | Hub to member, model-serving sites only | Policy creating a passthrough Route for the signals Service and writing the GridSite from the admitted Route hosts of the provider gateway and the signals Service. | The Route is removed. The own GridSite is retained. |
-| GridSite observer | Member to hub | ManifestWork installing a read-only observer. Its status feedback gives the hub the member's GridSite, the input to the peer GridSites row. | The ManifestWork is removed and the hub stops reading the member's GridSite. The observer's permissions on the member are left in place. |
-| RHOAI product chart | Hub to member | Argo CD ApplicationSet joining the Placement decisions with the cluster Secret's role label, rendering the profile for the role. | Removing the role stops managing the site's RHOAI. The site stays a member until ai-grid/enabled goes too. |
-
-Everything a member needs arrives by policy from the hub, and the hub reads
-members without a member ever dialing it. No member reaches another except
-through the two gateways and the signals Service over grid mTLS.
+layers run as separate hops.
 
 ## Observability
 
