@@ -1,55 +1,34 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="745" viewBox="0 0 1240 745" font-family="Helvetica, Arial, sans-serif">
-  <rect width="1240" height="745" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="387" viewBox="0 0 1240 387" font-family="Helvetica, Arial, sans-serif">
+  <rect width="1240" height="387" fill="#ffffff"/>
   <rect x="200" y="32" width="600" height="50" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
   <rect x="210" y="42" width="36" height="30" rx="6" fill="#E2E8F0"/>
   <text x="228" y="62.5" font-size="15" font-weight="700" fill="#475569" text-anchor="middle">1</text>
-  <text x="264" y="63" font-size="17"><tspan font-weight="700" fill="#0F172A">sovereignty fence</tspan></text>
-  <text x="451" y="63" font-size="15" fill="#64748B">zones from a header; enforce refuses none</text>
+  <text x="264" y="63" font-size="17"><tspan font-weight="700" fill="#0F172A">refuse or pin</tspan></text>
+  <text x="400" y="63" font-size="15" fill="#64748B">fence, stored state, model, shed</text>
   <rect x="200" y="95" width="600" height="50" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
   <rect x="210" y="105" width="36" height="30" rx="6" fill="#E2E8F0"/>
   <text x="228" y="125.5" font-size="15" font-weight="700" fill="#475569" text-anchor="middle">2</text>
-  <text x="264" y="126" font-size="17"><tspan font-weight="700" fill="#0F172A">stored-state pin</tspan></text>
-  <text x="442" y="126" font-size="15" fill="#64748B">a pinned id goes to its site</text>
-  <rect x="200" y="158" width="600" height="50" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
-  <rect x="210" y="168" width="36" height="30" rx="6" fill="#E2E8F0"/>
-  <text x="228" y="188.5" font-size="15" font-weight="700" fill="#475569" text-anchor="middle">3</text>
-  <text x="264" y="189" font-size="17"><tspan font-weight="700" fill="#0F172A">model header present, else 400</tspan></text>
-  <rect x="200" y="221" width="600" height="50" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
-  <rect x="210" y="231" width="36" height="30" rx="6" fill="#E2E8F0"/>
-  <text x="228" y="251.5" font-size="15" font-weight="700" fill="#475569" text-anchor="middle">4</text>
-  <text x="264" y="252" font-size="17"><tspan font-weight="700" fill="#0F172A">model shedding, 429</tspan></text>
+  <text x="264" y="126" font-size="17"><tspan font-weight="700" fill="#0F172A">candidates</tspan></text>
+  <text x="400" y="126" font-size="15" fill="#64748B">serve the model, in the fence, healthy, live</text>
+  <rect x="200" y="158" width="600" height="50" rx="6" fill="#ECFDF5" stroke="#10B981" stroke-width="2.5"/>
+  <rect x="210" y="168" width="36" height="30" rx="6" fill="#10B981"/>
+  <text x="228" y="188.5" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">3</text>
+  <text x="264" y="189" font-size="17"><tspan font-weight="700" fill="#065F46">tier</tspan></text>
+  <text x="400" y="189" font-size="15" fill="#64748B">room first, else overflow</text>
+  <rect x="200" y="221" width="600" height="50" rx="6" fill="#ECFDF5" stroke="#10B981" stroke-width="2.5"/>
+  <rect x="210" y="231" width="36" height="30" rx="6" fill="#10B981"/>
+  <text x="228" y="251.5" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">4</text>
+  <text x="264" y="252" font-size="17"><tspan font-weight="700" fill="#065F46">affinity</tspan></text>
+  <text x="400" y="252" font-size="15" fill="#64748B">the site holding the prompt</text>
   <rect x="200" y="284" width="600" height="50" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
   <rect x="210" y="294" width="36" height="30" rx="6" fill="#E2E8F0"/>
   <text x="228" y="314.5" font-size="15" font-weight="700" fill="#475569" text-anchor="middle">5</text>
-  <text x="264" y="315" font-size="17"><tspan font-weight="700" fill="#0F172A">matching: admitted, routable, inside the fence</tspan></text>
-  <rect x="200" y="347" width="600" height="50" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
-  <rect x="210" y="357" width="36" height="30" rx="6" fill="#E2E8F0"/>
-  <text x="228" y="377.5" font-size="15" font-weight="700" fill="#475569" text-anchor="middle">6</text>
-  <text x="264" y="378" font-size="17"><tspan font-weight="700" fill="#0F172A">healthy, NaN demoted</tspan></text>
-  <rect x="200" y="410" width="600" height="50" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
-  <rect x="210" y="420" width="36" height="30" rx="6" fill="#E2E8F0"/>
-  <text x="228" y="440.5" font-size="15" font-weight="700" fill="#475569" text-anchor="middle">7</text>
-  <text x="264" y="441" font-size="17"><tspan font-weight="700" fill="#0F172A">live: silent sites out</tspan></text>
-  <rect x="200" y="473" width="600" height="50" rx="6" fill="#ECFDF5" stroke="#10B981" stroke-width="2.5"/>
-  <rect x="210" y="483" width="36" height="30" rx="6" fill="#10B981"/>
-  <text x="228" y="503.5" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">8</text>
-  <text x="264" y="504" font-size="17"><tspan font-weight="700" fill="#065F46">room tier, else overflow tiers</tspan></text>
-  <rect x="200" y="536" width="600" height="50" rx="6" fill="#ECFDF5" stroke="#10B981" stroke-width="2.5"/>
-  <rect x="210" y="546" width="36" height="30" rx="6" fill="#10B981"/>
-  <text x="228" y="566.5" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">9</text>
-  <text x="264" y="567" font-size="17"><tspan font-weight="700" fill="#065F46">affinity narrows inside the tier</tspan></text>
-  <rect x="200" y="599" width="600" height="50" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
-  <rect x="210" y="609" width="36" height="30" rx="6" fill="#E2E8F0"/>
-  <text x="228" y="629.5" font-size="15" font-weight="700" fill="#475569" text-anchor="middle">10</text>
-  <text x="264" y="630" font-size="17"><tspan font-weight="700" fill="#0F172A">no pressure known: least queue</tspan></text>
-  <rect x="200" y="662" width="600" height="50" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
-  <rect x="210" y="672" width="36" height="30" rx="6" fill="#E2E8F0"/>
-  <text x="228" y="692.5" font-size="15" font-weight="700" fill="#475569" text-anchor="middle">11</text>
-  <text x="264" y="693" font-size="17"><tspan font-weight="700" fill="#0F172A">draw by count: 1, 2, or two choices</tspan></text>
-  <path d="M822 473 H836 V586 H822" fill="none" stroke="#10B981" stroke-width="2.5"/>
-  <line x1="836" y1="529.5" x2="848" y2="529.5" stroke="#10B981" stroke-width="2.5"/>
-  <text x="860" y="524.5" font-size="16" font-weight="700" fill="#065F46">affinity cannot reach</text>
-  <text x="860" y="546.5" font-size="16" font-weight="700" fill="#065F46">a site the tiers removed</text>
+  <text x="264" y="315" font-size="17"><tspan font-weight="700" fill="#0F172A">draw</tspan></text>
+  <text x="400" y="315" font-size="15" fill="#64748B">two by capacity, keep the less saturated</text>
+  <path d="M822 158 H836 V271 H822" fill="none" stroke="#10B981" stroke-width="2.5"/>
+  <line x1="836" y1="214.5" x2="848" y2="214.5" stroke="#10B981" stroke-width="2.5"/>
+  <text x="860" y="209.5" font-size="16" font-weight="700" fill="#065F46">affinity cannot reach</text>
+  <text x="860" y="231.5" font-size="16" font-weight="700" fill="#065F46">a site the tier removed</text>
   <!-- version stamp -->
-  <rect x="1044" y="713" width="176" height="20" rx="6" fill="#E2E8F0"/><text x="1132" y="727" font-size="12" fill="#475569" text-anchor="middle">RHOAI 3.6, AI Grid 0.3.0</text>
+  <rect x="1044" y="355" width="176" height="20" rx="6" fill="#E2E8F0"/><text x="1132" y="369" font-size="12" fill="#475569" text-anchor="middle">RHOAI 3.6, AI Grid 0.3.0</text>
 </svg>
