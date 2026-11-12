@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="700" viewBox="0 0 1240 700" font-family="Helvetica, Arial, sans-serif">
+  <rect width="1240" height="700" fill="#ffffff"/>
+  <defs>
+    <marker id="g" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#94A3B8"/></marker>
+    <marker id="grn" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#10B981"/></marker>
+    <marker id="blu" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#3B82F6"/></marker>
+    <marker id="amb" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#F59E0B"/></marker>
+    <marker id="amb2" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto-start-reverse"><path d="M0,0 L7,3 L0,6 Z" fill="#F59E0B"/></marker>
+  </defs>
+
+  <!-- caller (external) -->
+  <rect x="40" y="72" width="140" height="86" rx="6" fill="#ffffff" stroke="#CBD5E1" stroke-width="1.5"/>
+  <rect x="116" y="78" width="58" height="20" rx="6" fill="#E2E8F0"/><text x="145" y="92" font-size="11.5" fill="#475569" text-anchor="middle">external</text>
+  <text x="110" y="122" font-size="15" font-weight="700" fill="#0F172A" text-anchor="middle">MaaS gateway</text>
+  <text x="110" y="142" font-size="12" fill="#64748B" text-anchor="middle">admitted request</text>
+
+  <!-- consumer gateway -->
+  <rect x="220" y="40" width="280" height="620" rx="6" fill="#EEF2FF" stroke="#6366F1" stroke-width="2"/>
+  <text x="238" y="64" font-size="16" font-weight="700" fill="#4338CA">consumer gateway</text>
+  <rect x="238" y="80" width="244" height="70" rx="6" fill="#ECFDF5" stroke="#10B981" stroke-width="2.5"/>
+  <text x="360" y="112" font-size="15" font-weight="700" fill="#065F46" text-anchor="middle">grid_site_route</text>
+  <text x="360" y="133" font-size="12" fill="#059669" text-anchor="middle">filter</text>
+
+  <rect x="238" y="430" width="244" height="50" rx="6" fill="#D1FAE5" stroke="#10B981" stroke-width="1"/>
+  <text x="360" y="460" font-size="13.5" font-weight="700" fill="#065F46" text-anchor="middle">RouteSnapshot</text>
+  <rect x="238" y="510" width="244" height="50" rx="6" fill="#E0E7FF" stroke="#6366F1" stroke-width="1"/>
+  <text x="360" y="540" font-size="13.5" font-weight="700" fill="#4338CA" text-anchor="middle">control loop</text>
+  <rect x="238" y="590" width="244" height="50" rx="6" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1"/>
+  <text x="360" y="620" font-size="13.5" font-weight="700" fill="#92400E" text-anchor="middle">store</text>
+
+  <line x1="360" y1="588" x2="360" y2="566" stroke="#94A3B8" stroke-width="2" marker-end="url(#g)"/>
+  <line x1="360" y1="508" x2="360" y2="486" stroke="#94A3B8" stroke-width="2" marker-end="url(#g)"/>
+  <line x1="360" y1="428" x2="360" y2="158" stroke="#10B981" stroke-width="2.5" marker-end="url(#grn)"/>
+  <text x="372" y="296" font-size="12" font-weight="700" fill="#065F46">reads only this</text>
+
+  <!-- local cluster -->
+  <rect x="560" y="150" width="340" height="250" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="730" y="171" font-size="12.5" font-weight="700" fill="#475569" text-anchor="middle">local cluster</text>
+  <!-- pool 1 -->
+  <rect x="578" y="180" width="132" height="192" rx="6" fill="#ffffff" stroke="#94A3B8" stroke-width="1.5"/>
+  <text x="592" y="200" font-size="13" font-weight="700" fill="#334155">pool 1</text>
+  <rect x="592" y="212" width="104" height="40" rx="6" fill="#EEF2F7" stroke="#CBD5E1" stroke-width="1"/><text x="644" y="237" font-size="13" fill="#0F172A" text-anchor="middle">Envoy</text>
+  <rect x="592" y="264" width="104" height="40" rx="6" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1"/><text x="644" y="289" font-size="13" font-weight="700" fill="#1D4ED8" text-anchor="middle">EPP</text>
+  <rect x="592" y="316" width="104" height="40" rx="6" fill="#EDE9FE" stroke="#8B5CF6" stroke-width="1"/><text x="644" y="341" font-size="13" fill="#6D28D9" text-anchor="middle">vLLM</text>
+  <!-- pool 2 -->
+  <rect x="750" y="180" width="132" height="192" rx="6" fill="#ffffff" stroke="#94A3B8" stroke-width="1.5"/>
+  <text x="764" y="200" font-size="13" font-weight="700" fill="#334155">pool 2</text>
+  <rect x="764" y="212" width="104" height="40" rx="6" fill="#EEF2F7" stroke="#CBD5E1" stroke-width="1"/><text x="816" y="237" font-size="13" fill="#0F172A" text-anchor="middle">Envoy</text>
+  <rect x="764" y="264" width="104" height="40" rx="6" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1"/><text x="816" y="289" font-size="13" font-weight="700" fill="#1D4ED8" text-anchor="middle">EPP</text>
+  <rect x="764" y="316" width="104" height="40" rx="6" fill="#EDE9FE" stroke="#8B5CF6" stroke-width="1"/><text x="816" y="341" font-size="13" fill="#6D28D9" text-anchor="middle">vLLM</text>
+
+  <!-- remote site -->
+  <rect x="930" y="150" width="270" height="250" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="1116" y="171" font-size="12.5" font-weight="700" fill="#475569" text-anchor="middle">remote site</text>
+  <rect x="944" y="204" width="88" height="56" rx="6" fill="#EEF2F7" stroke="#94A3B8" stroke-width="1"/>
+  <text x="988" y="228" font-size="12.5" font-weight="700" fill="#0F172A" text-anchor="middle">provider</text>
+  <text x="988" y="246" font-size="12.5" font-weight="700" fill="#0F172A" text-anchor="middle">gateway</text>
+  <!-- pool 3 -->
+  <rect x="1052" y="180" width="132" height="192" rx="6" fill="#ffffff" stroke="#94A3B8" stroke-width="1.5"/>
+  <text x="1066" y="200" font-size="13" font-weight="700" fill="#334155">pool 3</text>
+  <rect x="1066" y="212" width="104" height="40" rx="6" fill="#EEF2F7" stroke="#CBD5E1" stroke-width="1"/><text x="1118" y="237" font-size="13" fill="#0F172A" text-anchor="middle">Envoy</text>
+  <rect x="1066" y="264" width="104" height="40" rx="6" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1"/><text x="1118" y="289" font-size="13" font-weight="700" fill="#1D4ED8" text-anchor="middle">EPP</text>
+  <rect x="1066" y="316" width="104" height="40" rx="6" fill="#EDE9FE" stroke="#8B5CF6" stroke-width="1"/><text x="1118" y="341" font-size="13" fill="#6D28D9" text-anchor="middle">vLLM</text>
+
+  <!-- request path -->
+  <line x1="180" y1="115" x2="232" y2="115" stroke="#94A3B8" stroke-width="2.5" marker-end="url(#g)"/>
+  <path d="M482,115 H988 V198" fill="none" stroke="#94A3B8" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#g)"/>
+  <path d="M482,115 H816 V206" fill="none" stroke="#94A3B8" stroke-width="2.5" marker-end="url(#g)"/>
+  <path d="M482,115 H644 V206" fill="none" stroke="#94A3B8" stroke-width="2.5" marker-end="url(#g)"/>
+  <line x1="1032" y1="232" x2="1060" y2="232" stroke="#94A3B8" stroke-width="2.5" marker-end="url(#g)"/>
+
+  <!-- signal loop -->
+  <rect x="560" y="436" width="640" height="224" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="576" y="458" font-size="12.5" font-weight="700" fill="#475569">signal loop</text>
+
+  <rect x="600" y="540" width="250" height="80" rx="6" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+  <text x="725" y="575" font-size="14.5" font-weight="700" fill="#92400E" text-anchor="middle">site operator</text>
+  <text x="725" y="597" font-size="12" fill="#B45309" text-anchor="middle">local</text>
+  <rect x="980" y="540" width="200" height="80" rx="6" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+  <text x="1080" y="575" font-size="14.5" font-weight="700" fill="#92400E" text-anchor="middle">site operator</text>
+  <text x="1080" y="597" font-size="12" fill="#B45309" text-anchor="middle">remote</text>
+
+  <!-- /metrics: EPP to its site's operator -->
+  <path d="M696,284 H720 V534" fill="none" stroke="#3B82F6" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#blu)"/>
+  <path d="M764,284 H736 V534" fill="none" stroke="#3B82F6" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#blu)"/>
+  <text x="748" y="500" font-size="12" font-weight="700" fill="#1D4ED8">/metrics</text>
+  <path d="M1066,284 H1042 V534" fill="none" stroke="#3B82F6" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#blu)"/>
+  <text x="1052" y="500" font-size="12" font-weight="700" fill="#1D4ED8">/metrics</text>
+
+  <!-- operator to operator -->
+  <line x1="858" y1="580" x2="972" y2="580" stroke="#F59E0B" stroke-width="2" marker-start="url(#amb2)" marker-end="url(#amb2)"/>
+  <text x="915" y="569" font-size="12" font-weight="700" fill="#92400E" text-anchor="middle">/v1/site/signals</text>
+  <text x="915" y="598" font-size="12" font-weight="700" fill="#92400E" text-anchor="middle">mTLS</text>
+
+  <!-- poll into store -->
+  <line x1="598" y1="615" x2="490" y2="615" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#amb)"/>
+  <text x="544" y="605" font-size="12" font-weight="700" fill="#92400E" text-anchor="middle">poll, 1s</text>
+  <!-- version stamp -->
+  <rect x="1044" y="668" width="176" height="20" rx="6" fill="#E2E8F0"/><text x="1132" y="682" font-size="12" fill="#475569" text-anchor="middle">RHOAI 3.6, AI Grid 0.3.0</text>
+</svg>

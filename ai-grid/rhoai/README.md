@@ -129,17 +129,11 @@ model, the MaaS tenant declares an ExternalModel whose ExternalProvider points a
 the grid gateway Service, so MaaS dials the grid gateway in cluster.
 
 The grid gateway is Praxis in the consumer role, with authentication mode none
-because MaaS already authenticated the caller. It routes every request by site:
-
-1. Read the dial file the operator writes and keep the sites that serve the model.
-2. Apply the sovereignty and geo fence.
-3. Apply prefix affinity, so a conversation's follow-up turns return to the site
-   that holds its KV cache prefix.
-4. Pick by live load. Queue depth is the primary signal and KV cache
-   utilization the baseline, because KV utilization stops changing near
-   saturation while the queue keeps growing.
-5. If every eligible site is past full, shed with 429 and Retry-After, because
-   OpenAI clients back off and retry on 429.
+because MaaS already authenticated the caller. Its grid_site_route filter picks
+a site for every request from the operator's files. It applies the sovereignty
+fence and keeps the sites with room. It narrows to the site holding the prompt's
+prefix, then draws two sites by capacity and keeps the less saturated one.
+[AI Grid Site Selection](../site-selection/README.md) describes the decision.
 
 The gateway stamps x-grid-site and x-grid-backend on the response. It dials a
 local model through the RHOAI serving gateway with a base path, so the llm-d
