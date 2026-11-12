@@ -5,13 +5,15 @@ system as it is designed or as it ships, with its diagrams.
 
 ## Documents
 
-Documents are listed here as they are published.
+| Document | Topic | Versions |
+|---|---|---|
+| [AI Grid RHOAI 3.6](ai-grid/rhoai/README.md) | AI Grid | RHOAI 3.6, AI Grid 0.3.0 |
 
 ## Layout
 
 Topics sit at the root, and each document has its own directory under its
-topic. The document is the README.md in that directory, with its diagrams
-beside it.
+topic. The document is the README.md in that directory. Its diagrams are in
+images/, as the SVG source and a PNG render of each.
 
 ## Changes
 
