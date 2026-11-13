@@ -1,7 +1,7 @@
 # AI Grid
 
 AI Grid serves models across one or more Red Hat OpenShift AI clusters as a
-single service. These documents describe it as it ships.
+single service.
 
 | Document | Covers | Versions |
 |---|---|---|
