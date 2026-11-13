@@ -57,14 +57,14 @@
 
   <!-- hop 4: provider to serving -->
   <line x1="930" y1="382" x2="930" y2="463" stroke="#10B981" stroke-width="3" marker-end="url(#grn)"/>
-  <rect x="946" y="411" width="98" height="24" rx="6" fill="#ECFDF5" stroke="#10B981" stroke-width="1"/><text x="995" y="427" font-size="12" font-weight="700" fill="#065F46" text-anchor="middle">TLS + token</text>
+  <rect x="946" y="411" width="58" height="24" rx="6" fill="#ECFDF5" stroke="#10B981" stroke-width="1"/><text x="975" y="427" font-size="12" font-weight="700" fill="#065F46" text-anchor="middle">mTLS</text>
 
   <!-- hop 5: serving to vLLM -->
   <line x1="930" y1="538" x2="930" y2="571" stroke="#10B981" stroke-width="3" marker-end="url(#grn)"/>
 
   <!-- local alternative -->
   <line x1="380" y1="382" x2="380" y2="464" stroke="#10B981" stroke-width="1.75" marker-end="url(#grn)"/>
-  <rect x="396" y="411" width="98" height="24" rx="6" fill="#ECFDF5" stroke="#10B981" stroke-width="1"/><text x="445" y="427" font-size="12" font-weight="700" fill="#065F46" text-anchor="middle">TLS + token</text>
+  <rect x="396" y="411" width="58" height="24" rx="6" fill="#ECFDF5" stroke="#10B981" stroke-width="1"/><text x="425" y="427" font-size="12" font-weight="700" fill="#065F46" text-anchor="middle">mTLS</text>
 
   <!-- version stamp -->
   <rect x="1024" y="678" width="176" height="20" rx="6" fill="#E2E8F0"/><text x="1112" y="692" font-size="12" fill="#475569" text-anchor="middle">RHOAI 3.6, AI Grid 0.3.0</text>
