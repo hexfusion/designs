@@ -183,7 +183,6 @@ follow the AI gateway operator's manifest bump.
 
 ## Known limits
 
-- A site that serves no models has no provider gateway address, so its GridSite reports Available False, although routing from it works.
-- The gateway exposes no readiness endpoint reachable from outside its pod.
+- All sites are assumed to be ACM spoke clusters.
 - A site belongs to one grid network.
 - Session affinity LRU is currently bound to a single grid gateway.
