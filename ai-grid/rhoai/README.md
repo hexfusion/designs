@@ -116,9 +116,9 @@ endpoint, who may read what, and the series.
 |---|---|
 | Client to MaaS gateway | API key |
 | MaaS gateway to grid gateway | TLS, and a NetworkPolicy that admits only the MaaS gateway |
-| Grid gateway to the local serving gateway | TLS and a token |
+| Grid gateway to the local serving gateway | Mutual TLS |
 | Grid gateway to a peer's provider gateway | Mutual TLS |
-| Provider gateway to its serving gateway | TLS and a token |
+| Provider gateway to its serving gateway | Mutual TLS |
 
 MaaS authenticates the consumer once. The grid never re-authenticates the
 caller. It trusts MaaS admission and secures the site-to-site hop with its own
